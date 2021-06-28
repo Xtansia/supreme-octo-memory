@@ -1,0 +1,9 @@
+[package]
+name = "supreme-octo-memory"
+authors = ["Thomas Farr <xtansia@xtansia.com>"]
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+anyhow = "1.0"
+base64 = "0.13"
