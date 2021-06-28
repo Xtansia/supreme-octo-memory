@@ -1,5 +1,5 @@
-use anyhow::{anyhow, Result};
 use super::{Packet, PacketData, PacketType};
+use anyhow::{anyhow, Result};
 
 pub fn encode_packet(packet: &Packet, supports_binary: bool) -> PacketData {
     use PacketData::*;
@@ -98,7 +98,7 @@ mod tests {
         ) => {
             assert_packet! {
                 __roundtrip, $type, $data, true, $encoded
-            }  
+            }
         };
         (
             type $type:ident containing $data:expr,
@@ -107,14 +107,14 @@ mod tests {
         ) => {
             assert_packet! {
                 __roundtrip, $type, $data, false, $encoded
-            }  
+            }
         };
         (
             decoding ($data:expr) fails
         ) => {
             let output = decode_packet(&($data).into());
             assert!(output.is_err());
-        }
+        };
     }
 
     #[test]
